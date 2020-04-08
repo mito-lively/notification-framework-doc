@@ -1,0 +1,73 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Greeter service
+servers:
+  - url: http://localhost:3001
+paths:
+  /sayHello:
+    get:
+      summary: Say hello to a passed in name.
+      operationId: sayHello
+      tags:
+        - example
+      parameters:
+        - name: name
+          in: query
+          description: Who to say hello to
+          required: true
+          schema:
+            type: string
+            minLength: 10
+      responses:
+        '200':
+          description: A message back to the name passed in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleResponse"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleError"
+  /sayGoodbye:
+    get:
+      summary: Say goodbye to a passed in name.
+      operationId: sayGoodbye
+      tags:
+        - example
+      parameters:
+        - name: name
+          in: query
+          description: Who to say goodbye to
+          required: true
+          schema:
+            type: string
+            minLength: 10
+      responses:
+        '200':
+          description: A message back to the name passed in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleResponse"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleError"
+
+components:
+  schemas:
+    ExampleResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+    ExampleError:
+      type: string
