@@ -3,9 +3,9 @@ info:
   version: 1.0.0
   title: Greeter service
 servers:
-  - url: http://localhost:3001
+  - url: http://localhost:8080
 paths:
-  greeter/sayHello:
+  /greeter/sayHello:
     get:
       summary: Say hello to a passed in name.
       operationId: sayHello
@@ -32,7 +32,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ExampleError"
-  greeter/sayGoodbye:
+  /greeter/sayGoodbye:
     get:
       summary: Say goodbye to a passed in name.
       operationId: sayGoodbye
