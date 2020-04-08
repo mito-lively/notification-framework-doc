@@ -5,7 +5,7 @@ info:
 servers:
   - url: http://localhost:3001
 paths:
-  /sayHello:
+  greeter/sayHello:
     get:
       summary: Say hello to a passed in name.
       operationId: sayHello
@@ -32,7 +32,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ExampleError"
-  /sayGoodbye:
+  greeter/sayGoodbye:
     get:
       summary: Say goodbye to a passed in name.
       operationId: sayGoodbye
