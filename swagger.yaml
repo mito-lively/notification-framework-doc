@@ -4,6 +4,8 @@ info:
   title: Greeter service
 servers:
   - url: http://localhost:8080
+security:
+  - cookieAuth: []
 paths:
   /greeter/sayHello:
     get:
@@ -19,11 +21,6 @@ paths:
           schema:
             type: string
             minLength: 10
-        - name: Cookie
-          in: header
-          description: an authorization header
-          required: true
-          type: string
       responses:
         '200':
           description: A message back to the name passed in
@@ -66,6 +63,11 @@ paths:
                 $ref: "#/components/schemas/ExampleError"
 
 components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
   schemas:
     ExampleResponse:
       type: object
