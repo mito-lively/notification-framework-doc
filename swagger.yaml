@@ -19,11 +19,11 @@ paths:
           schema:
             type: string
             minLength: 10
-        - in: header
-          name: cookie
-          schema:
-            type: string
+        - name: Cookie
+          in: header
+          description: an authorization header
           required: true
+          type: string
       responses:
         '200':
           description: A message back to the name passed in
